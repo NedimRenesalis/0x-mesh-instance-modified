@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+    mesh:
+        image: 0xorg/mesh:latest
+        restart: always
+        volumes:
+            - /root/data:/usr/mesh/0x_mesh
+        ports:
+            - '60557:60557'
+            - '60558:60558'
+            - '60559:60559'
+        environment:
+            - VERBOSITY=5
+            - ETHEREUM_CHAIN_ID=1
+            - ENABLE_GRAPHQL_SERVER=true
+            - GRAPHQL_SERVER_ADDR=mesh:60557
+            # Set your backing Ethereum JSON RPC endpoint below
+            - ETHEREUM_RPC_URL=wss://eth-mainnet.ws.alchemyapi.io/v2/pUvgrBtuwRqnx4cYiQus8VrWtydjTWvD
+            - BLOCK_POLLING_INTERVAL=5s
+
+    
+
+    
